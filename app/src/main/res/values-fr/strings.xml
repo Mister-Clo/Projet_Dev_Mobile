@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Projet</string>
+    <string name="appTitle">TENNIX</string>
+    <string name="new_match">Nouveau Match</string>
+    <string name="history">Historique</string>
+    <string name="menu">MENU</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="player_1">Joueur 1</string>
+    <string name="player_2">Joueur 2</string>
+    <string-array name="match_formats">
+        <item>2 sets, 6 jeux, Avantage, TB 6&#8211;6</item>
+        <item>2 sets, 4 jeux, Sans avantage, TB 3&#8211;3</item>
+    </string-array>
+</resources>

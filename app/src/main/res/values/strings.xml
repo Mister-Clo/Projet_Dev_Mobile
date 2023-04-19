@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Project</string>
+    <string name="appTitle">TENNIX</string>
+    <string name="new_match">New Match</string>
+    <string name="history">Saved Matches</string>
+    <string name="menu">MENU</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+    <string-array name="match_formats">
+        <item>2 sets, 6 games, Advantage, TB 6&#8211;6</item>
+        <item>2 sets, 4 games, No advantage, TB 3&#8211;3</item>
+    </string-array>
+
+
+    <!-- Preference Titles -->
+    <string name="messages_header" translatable="false">Messages</string>
+    <string name="sync_header" translatable="false">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title" translatable="false">Your signature</string>
+    <string name="reply_title" translatable="false">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title" translatable="false">Sync email periodically</string>
+    <string name="attachment_title" translatable="false">Download incoming attachments</string>
+    <string name="attachment_summary_on" translatable="false">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off" translatable="false">Only download attachments when manually requested</string>
+    <string name="player_1">Player 1</string>
+    <string name="player_2">Player 2</string>
+    <string name="match_format">Match Format</string>
+    <string name="startMatch">Start</string>
+    <string name="new_match_title">New Match</string>
+</resources>
