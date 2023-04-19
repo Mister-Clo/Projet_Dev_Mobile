@@ -20,6 +20,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void openSavedMatches(View view) {
+        Intent intent = new Intent(this, SavedMatchesActivity.class);
+        startActivity(intent);
+    }
+
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;

@@ -30,4 +30,7 @@
     <string name="match_format">Match Format</string>
     <string name="startMatch">Start</string>
     <string name="new_match_title">New Match</string>
+    <string name="add_match_failed">Failed to Add Match</string>
+    <string name="add_match_success">Match Added Successfully</string>
+    <string name="take_picture">Take Picture</string>
 </resources>

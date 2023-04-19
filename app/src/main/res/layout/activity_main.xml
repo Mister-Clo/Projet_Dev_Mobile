@@ -71,6 +71,7 @@
             android:layout_width="0dp"
             android:layout_height="65dp"
             android:layout_weight="0.8"
+            android:onClick="openSavedMatches"
             android:text="@string/history" />
         <Space
             android:layout_width="0dp"
