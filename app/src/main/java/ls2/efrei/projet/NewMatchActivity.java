@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,6 +17,24 @@ public class NewMatchActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.new_match);
+        TextView matchTypeTitle = findViewById(R.id.match_type_title);
+        TextView player1Name = findViewById(R.id.match_view_player1);
+        TextView player2Name = findViewById(R.id.match_view_player2);
+        TextView player1Score = findViewById(R.id.match_view_score1);
+        TextView player2Score = findViewById(R.id.match_view_score2);
+
+        String matchType = getIntent().getStringExtra("matchType");
+        String player1 = getIntent().getStringExtra("player1");
+        String player2 = getIntent().getStringExtra("player2");
+        String score1 = getIntent().getStringExtra("score1");
+        String score2 = getIntent().getStringExtra("score2");
+
+        // Set the values in the TextViews got from the intent
+        matchTypeTitle.setText(matchType);
+        player1Name.setText(player1);
+        player2Name.setText(player2);
+        player1Score.setText(score1);
+        player2Score.setText(score2);
 
     }
 

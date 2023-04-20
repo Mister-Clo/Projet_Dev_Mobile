@@ -10,28 +10,70 @@
     android:paddingTop="10dp"
     android:paddingEnd="16dp"
     android:paddingBottom="80dp">
-
-    <LinearLayout
+    <TextView
+        android:id="@+id/match_type_title"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.3"
-        android:orientation="vertical"
-        android:textAlignment="gravity"
-        tools:ignore="UselessLeaf">
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.1" />
-
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
+        android:textSize="20sp"
+        android:text="" />
+    <TextView
+        android:id="@+id/player1_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
+        android:textSize="20sp"
+        android:text="@string/player_1" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        >
         <TextView
-            android:id="@+id/player1_title"
-            android:layout_width="match_parent"
-            android:layout_height="22dp"
-            android:layout_marginBottom="300dp"
-            android:layout_weight="0.8"
-            android:textSize="40sp"
-            android:text="@string/new_match_title" />
-
+            android:id="@+id/match_view_player1"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="match_parent"
+            android:text="@string/player_1"
+            android:textSize="25sp"
+            android:textColor="#000"/>
+        <TextView
+            android:id="@+id/match_view_score1"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="match_parent"
+            android:text=""
+            android:textSize="20sp"
+            android:textColor="#000"/>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/player2_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
+        android:textSize="40sp"
+        android:text="@string/player_2" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        >
+        <TextView
+            android:id="@+id/match_view_player2"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="match_parent"
+            android:text="@string/player_2"
+            android:textSize="25sp"
+            android:textColor="#000"/>
+        <TextView
+            android:id="@+id/match_view_score2"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="match_parent"
+            android:text=""
+            android:textSize="20sp"
+            android:textColor="#000"/>
     </LinearLayout>
 
 

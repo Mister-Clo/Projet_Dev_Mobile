@@ -129,6 +129,10 @@ public class NewMatchSettingsActivity extends AppCompatActivity {
         new Thread(runnable).start();
         Intent intent = new Intent(this, NewMatchActivity.class);
         intent.putExtra("matchType", spinnerMatchTypes.getSelectedItem().toString());
+        intent.putExtra("player1", editTextPlayer1.getText().toString());
+        intent.putExtra("player2", editTextPlayer2.getText().toString());
+        intent.putExtra("score1", "0");
+        intent.putExtra("score2", "0");
         startActivity(intent);
     }
     @Override
