@@ -18,17 +18,11 @@
         android:orientation="vertical"
         android:textAlignment="gravity"
         tools:ignore="UselessLeaf">
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.1" />
-
         <TextView
             android:id="@+id/player1_title"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="0dp"
-            android:layout_weight="0.3"
             android:textSize="40sp"
             android:text="@string/history" />
 
@@ -36,12 +30,8 @@
             android:id="@+id/saved_matches_list"
             android:paddingTop="20dp"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.6"/>
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.3" />
+            android:layout_height="wrap_content"
+            />
 
     </LinearLayout>
 

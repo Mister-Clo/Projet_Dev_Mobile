@@ -46,7 +46,7 @@
         </activity>
         <activity
             android:name=".SavedMatchesActivity"
-            android:label="@string/new_match_title"
+            android:label="@string/history"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
