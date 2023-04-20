@@ -104,29 +104,11 @@ public class NewMatchSettingsActivity extends AppCompatActivity {
      * @param view
      */
     public void newMatch(View view){
-        Runnable runnable = new Runnable() {
-            @Override
-            public void run() {
-                try{
-                    handler.post(new Runnable() {
-                        // This method will be executed on the UI thread
-                        //to add the match to the database
-                        @Override
-                        public void run() {
-                            String matchFormat = spinnerMatchTypes.getSelectedItem().toString();
-                            String player1 = editTextPlayer1.getText().toString().trim();
-                            String player2 = editTextPlayer2.getText().toString().trim();
-                            db.addMatches(matchFormat, imageBytes, "200N","100W","HL","Kribi",0,0, player1, player2);
-                        }
-                    });
-                }
-                catch(Exception e){
-                    e.printStackTrace();
-                }
-
-            }
-        };
-        new Thread(runnable).start();
+        String matchFormat = spinnerMatchTypes.getSelectedItem().toString();
+        String player1 = editTextPlayer1.getText().toString().trim();
+        String player2 = editTextPlayer2.getText().toString().trim();
+        //Insert the match in the database
+        db.addMatches(matchFormat, imageBytes, "200N","100W","HL","Kribi",0,0, player1, player2);
         Intent intent = new Intent(this, NewMatchActivity.class);
         intent.putExtra("matchType", spinnerMatchTypes.getSelectedItem().toString());
         intent.putExtra("player1", editTextPlayer1.getText().toString());
