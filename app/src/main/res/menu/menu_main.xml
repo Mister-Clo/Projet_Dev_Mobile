@@ -2,6 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/menu_display"
-        android:title="@string/menu"
+        android:title="@string/history"
         app:showAsAction="ifRoom"/>
 </menu>

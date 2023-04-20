@@ -29,7 +29,6 @@ import android.Manifest;
 public class NewMatchSettingsActivity extends AppCompatActivity {
 
     private static final int REQUEST_CAMERA_PERMISSION = 200;
-    private static final int REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION = 201;
     Spinner spinnerMatchTypes;
     EditText editTextPlayer1, editTextPlayer2;
     Button btnStartMatch, btnTakePhoto;

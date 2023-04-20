@@ -33,11 +33,8 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.menu_display) {
-            // Start the DisplayActivity and pass the values entered by the user
-//            Intent intent = new Intent(MainActivity.this, DisplayActivity.class);
-//            intent.putExtra("value1", lastOperation);
-//            intent.putExtra("value2", result.getText().toString());
-//            startActivity(intent);
+            Intent intent = new Intent(this, SavedMatchesActivity.class);
+            startActivity(intent);
             return true;
         }
         return super.onOptionsItemSelected(item);
