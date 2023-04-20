@@ -1,6 +1,8 @@
 package ls2.efrei.projet;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -12,15 +14,22 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.net.Socket;
+import java.util.ArrayList;
+import android.Manifest;
 
 public class NewMatchSettingsActivity extends AppCompatActivity {
+
+    private static final int REQUEST_CAMERA_PERMISSION = 200;
+    private static final int REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION = 201;
     Spinner spinnerMatchTypes;
     EditText editTextPlayer1, editTextPlayer2;
     Button btnStartMatch, btnTakePhoto;
@@ -44,10 +53,32 @@ public class NewMatchSettingsActivity extends AppCompatActivity {
         btnTakePhoto = findViewById(R.id.button_take_picture);
         mImageView = findViewById(R.id.match_picture);
     }
+
+    /**
+     * This method is called when the user clicks on the "Start Match" button
+     * It starts an Implicit intent to take a picture
+     * @param view
+     */
     public void takePicture(View view){
+        if (checkSelfPermission(android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(new String[] {android.Manifest.permission.CAMERA}, REQUEST_CAMERA_PERMISSION);
+            return;
+        }
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivityForResult(intent, 1);
+        }
+    }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        if (requestCode == REQUEST_CAMERA_PERMISSION) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                takePicture(null);
+            } else {
+                Toast.makeText(this, "Camera permission denied", Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
 
@@ -84,8 +115,8 @@ public class NewMatchSettingsActivity extends AppCompatActivity {
                         @Override
                         public void run() {
                             String matchFormat = spinnerMatchTypes.getSelectedItem().toString();
-                            String player1 = editTextPlayer1.getText().toString();
-                            String player2 = editTextPlayer2.getText().toString();
+                            String player1 = editTextPlayer1.getText().toString().trim();
+                            String player2 = editTextPlayer2.getText().toString().trim();
                             db.addMatches(matchFormat, imageBytes, "200N","100W","HL","Kribi",0,0, player1, player2);
                         }
                     });
@@ -101,7 +132,6 @@ public class NewMatchSettingsActivity extends AppCompatActivity {
         intent.putExtra("matchType", spinnerMatchTypes.getSelectedItem().toString());
         startActivity(intent);
     }
-
     @Override
     protected void onDestroy() {
         super.onDestroy();

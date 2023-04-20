@@ -2,6 +2,7 @@ package ls2.efrei.projet;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
@@ -13,6 +14,11 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     private static final String TABLE_NAME = "matches";
 
+    //To view the data of the database, download the SQLite Browser from https://sqlitebrowser.org/dl/
+    //go to toolbar of android studio, click on view, tool windows, then device file explorer
+    //then go to data/data/ls2.efrei.projet/databases/matches.db
+    //right click on ata/data/ls2.efrei.projet and synchronize then copy the matches.db (db.shm, db-wal) file to your computer
+    //open the SQLite Browser and open the matches.db file
     public DataBaseHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
@@ -53,5 +59,15 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         } else {
             Toast.makeText(context, R.string.add_match_success, Toast.LENGTH_SHORT).show();
         }
+    }
+
+    Cursor readAllData(){
+        String query = "SELECT * FROM " + TABLE_NAME;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = null;
+        if(db != null){
+            cursor = db.rawQuery(query, null);
+        }
+        return cursor;
     }
 }
